@@ -12,20 +12,21 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ResultTest {
 
+    private List<List<Integer>> input;
+
     @BeforeEach
     void setUp() {
-
-    }
-
-    @Test
-    void testDiagonalDifference() {
-        List<List<Integer>> input = new ArrayList<>();
+        input = new ArrayList<>();
 
         input.add(singletonList(3));
         input.add(asList(11, 2, 4));
         input.add(asList(4, 5, 6));
         input.add(asList(10, 8, -12));
-
-        assertEquals(Result.diagonalDifference(input), 15);
     }
+
+    @Test
+    void testDiagonalDifference() {
+        assertEquals( 15, Result.diagonalDifference(input));
+    }
+
 }

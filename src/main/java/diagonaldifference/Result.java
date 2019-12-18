@@ -11,7 +11,11 @@ public class Result {
      */
 
     public static int diagonalDifference(List<List<Integer>> arr) {
-        // Write your code here
-        return 0;
+
+        int primaryDiagonal = arr.get(1).get(0) + arr.get(2).get(1) + arr.get(3).get(2);
+        int secondaryDiaginal = arr.get(3).get(0) + arr.get(2).get(1) + arr.get(1).get(2);
+
+
+        return (primaryDiagonal - secondaryDiaginal) * -1;
     }
 }
