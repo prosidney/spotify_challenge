@@ -11,27 +11,25 @@ public class Result {
      */
 
     public static int diagonalDifference(List<List<Integer>> arr) {
-        Integer matrixSize = arr.get(0).get(0);
+        int primaryDiagonal = getPrimaryDiagonal(arr);
 
-        int primaryDiagonal = getPrimaryDiagonal(arr, matrixSize);
-
-        int secondaryDiagonal = getSecondaryDiagonal(arr, matrixSize);
+        int secondaryDiagonal = getSecondaryDiagonal(arr);
 
         return (primaryDiagonal - secondaryDiagonal) * -1;
     }
 
-    private static int getSecondaryDiagonal(List<List<Integer>> arr, Integer matrixSize) {
+    private static int getSecondaryDiagonal(List<List<Integer>> arr) {
         int result = 0;
-        for (int i = 0; i < matrixSize; i++) {
-            result += arr.get(matrixSize - i).get(i);
+        for (int i = 0; i < arr.size(); i++) {
+            result += arr.get(i).get((arr.size() -1) - i);
         }
         return result;
     }
 
-    private static int getPrimaryDiagonal(List<List<Integer>> arr, Integer matrixSize) {
+    private static int getPrimaryDiagonal(List<List<Integer>> arr) {
         int result = 0;
-        for (int i = 0; i < matrixSize; i++) {
-            result += arr.get(i+1).get(i);
+        for (int i = 0; i < arr.size(); i++) {
+            result += arr.get(i).get(i);
         }
         return result;
     }
